@@ -5,17 +5,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Management Page</title>
+
+    <style>
+        body {
+            background-image: url(../IMAGES/bg4.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
+
+    
 <body>
     <form id="form1" runat="server">
-        <div style="background-color: black; height: 100px; width: 100%; text-align: center;">
+        <div style="background-color: black; height: 70px; width: 100%; text-align: center;">
             <h1 style="font-family: sans-serif; color: white;">Management Page</h1>
         </div>
 
         <div style="margin-top: 5%;">
             <div style="float: left; display: inline-block">
-                <h2>Add Employee Here</h2>
-                <table style="margin-top: 0%;">
+                <h1>Add Employee Here</h1>
+                <table style="margin-top: 0%;background-color:cadetblue;" >
                     <tr>
                         <td>&nbsp;First Name:</td>
                         <td>&nbsp;<asp:TextBox ID="txtFirstName" runat="server" placeholder="Enter First Name"></asp:TextBox></td>
@@ -52,10 +62,10 @@
 
             <div style="float: right; margin-top: 0%;">
                 <div style="">
-                    <h2>Employee Table</h2>
-                    <asp:GridView ID="GridViewEMPLOYEE" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewTEST_RowDeleting" OnRowEditing="GridViewTEST_RowEditing" OnRowCancelingEdit="GridViewTEST_RowCancelingEdit" OnRowUpdating="GridViewTEST_RowUpdating">
+                    <h1>Employee Table</h1>
+                    <asp:GridView ID="GridViewEMPLOYEE" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewTEST_RowDeleting" OnRowEditing="GridViewTEST_RowEditing" OnRowCancelingEdit="GridViewTEST_RowCancelingEdit" OnRowUpdating="GridViewTEST_RowUpdating" BackColor="#669999">
                         <Columns>
-                            <asp:TemplateField>
+                            <asp:TemplateField Visible="False">
                                 <ItemTemplate>
                                     <asp:HiddenField ID="GVEmployeeID" runat="server" Value='<%#DataBinder.Eval(Container.DataItem, "EmployeeID") %>' />
                                 </ItemTemplate>

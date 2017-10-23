@@ -3,14 +3,23 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
     <title>Database Systems Group Project Log In Page</title>
+
+    <style>
+        body {
+            background-image: url(../IMAGES/bg1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
+
 <body>
     <form id="form1" runat="server">
-        <div style="background-color: black; height: 100px; width: 100%; text-align: center">
+        <div style="background-color: black; height: 70px; width: 100%; text-align: center">
             <h1 style="font-family: sans-serif; color: white;">Welcome! Please Log In!</h1>
-
         </div>
 
         <div style="">
@@ -34,8 +43,8 @@
             </table>
         </div>
 
-        <div style="text-align:center">
-            <h3 >
+        <div style="text-align: center">
+            <h3>
                 <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red" Visible="false"></asp:Label></h3>
         </div>
 
