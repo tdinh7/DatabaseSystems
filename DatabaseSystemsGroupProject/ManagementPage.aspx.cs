@@ -23,12 +23,11 @@ namespace DatabaseSystemsGroupProject
         {
             if (!IsPostBack)//fires on the first page load
             {
-                //BindEmployeeGridView();//binds the EmployeeGridView to the Employee table
-                BindEmployeeGridViewTEST();//binds the EmployeeGridView to the Employee tabe
+                BindEmployeeGridViewEMPLOYEE();//binds the EmployeeGridView to the Employee tabe
             }
         }
 
-
+        
         protected void btnCreateEmployee_Click(object sender, EventArgs e)
         {
             String firstName = txtFirstName.Text;
@@ -62,47 +61,12 @@ namespace DatabaseSystemsGroupProject
             finally
             {
                 sqlConnectionOBJ.Close();
-                BindEmployeeGridViewTEST();//rebinds the EmployeeGridView to reflect the new change
+                BindEmployeeGridViewEMPLOYEE();//rebinds the EmployeeGridView to reflect the new change
             }
         }
+        
 
-        //protected void BindEmployeeGridView()
-        //{
-        //    sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
-
-        //    try
-        //    {
-        //        sqlConnectionOBJ.Open();
-
-        //        sqlCommandOBJ.CommandText = "SELECT * FROM Employee";
-
-        //        sqlCommandOBJ.Connection = sqlConnectionOBJ;
-        //        sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
-        //        sqlDataAdapterOBJ.Fill(dataSetOBJ, "Employee");//we are expecting a DataSet/ResultSet back
-
-        //        if (dataSetOBJ.Tables[0].Rows.Count > 0)
-        //        {
-        //            //GridViewEmployees.DataSource = dataSetOBJ;
-        //            //GridViewEmployees.DataBind();
-        //        }
-        //        else
-        //        {
-
-        //        }
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        lblMessage.Visible = true;
-        //        lblMessage.Text = "SqlException*** ERROR***";
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        sqlConnectionOBJ.Close();
-        //    }
-        //}
-
-        protected void BindEmployeeGridViewTEST()
+        protected void BindEmployeeGridViewEMPLOYEE()
         {
             sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
 
@@ -118,8 +82,8 @@ namespace DatabaseSystemsGroupProject
 
                 if (dataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
                 {
-                    GridViewTEST.DataSource = dataSetOBJ;
-                    GridViewTEST.DataBind();
+                    GridViewEMPLOYEE.DataSource = dataSetOBJ;
+                    GridViewEMPLOYEE.DataBind();
                 }
                 else
                 {
@@ -144,7 +108,7 @@ namespace DatabaseSystemsGroupProject
         protected void GridViewTEST_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             ltError.Text = String.Empty;
-            GridViewRow gvRow = (GridViewRow)GridViewTEST.Rows[e.RowIndex];
+            GridViewRow gvRow = (GridViewRow)GridViewEMPLOYEE.Rows[e.RowIndex];
             HiddenField employeeIDhidden = (HiddenField)gvRow.FindControl("GVEmployeeID");
 
             sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
@@ -161,7 +125,7 @@ namespace DatabaseSystemsGroupProject
 
                 sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
 
-                GridViewTEST.EditIndex = -1;//reset index
+                GridViewEMPLOYEE.EditIndex = -1;//reset index
             }
             catch (SqlException ex)
             {
@@ -176,27 +140,27 @@ namespace DatabaseSystemsGroupProject
             {
                 sqlConnectionOBJ.Close();
                 sqlConnectionOBJ.Dispose();
-                BindEmployeeGridViewTEST();//rebinds the EmployeeGridView to reflect the new change
+                BindEmployeeGridViewEMPLOYEE();//rebinds the EmployeeGridView to reflect the new change
             }
         }
 
         protected void GridViewTEST_RowEditing(object sender, GridViewEditEventArgs e)
         {
             ltError.Text = String.Empty;
-            GridViewTEST.EditIndex = e.NewEditIndex;
-            BindEmployeeGridViewTEST();
+            GridViewEMPLOYEE.EditIndex = e.NewEditIndex;
+            BindEmployeeGridViewEMPLOYEE();
         }
 
         protected void GridViewTEST_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            GridViewTEST.EditIndex = -1;//reset index
-            BindEmployeeGridViewTEST();//rebinds with data from Employee table
+            GridViewEMPLOYEE.EditIndex = -1;//reset index
+            BindEmployeeGridViewEMPLOYEE();//rebinds with data from Employee table
         }
 
         protected void GridViewTEST_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             ltError.Text = String.Empty;
-            GridViewRow gvRow = (GridViewRow)GridViewTEST.Rows[e.RowIndex];
+            GridViewRow gvRow = (GridViewRow)GridViewEMPLOYEE.Rows[e.RowIndex];
             HiddenField employeeIDhidden = (HiddenField)gvRow.FindControl("GVEmployeeID");
             TextBox txtFirstName = (TextBox)gvRow.Cells[1].Controls[0];
             TextBox txtLastName = (TextBox)gvRow.Cells[2].Controls[0];
@@ -217,7 +181,7 @@ namespace DatabaseSystemsGroupProject
                 sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
                 sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
 
-                GridViewTEST.EditIndex = -1;//reset index
+                GridViewEMPLOYEE.EditIndex = -1;//reset index
             }
             catch (SqlException ex)
             {
@@ -230,7 +194,7 @@ namespace DatabaseSystemsGroupProject
             {
                 sqlConnectionOBJ.Close();
                 sqlConnectionOBJ.Dispose();
-                BindEmployeeGridViewTEST();//rebinds the EmployeeGridView to reflect the new change
+                BindEmployeeGridViewEMPLOYEE();//rebinds the EmployeeGridView to reflect the new change
             }
         }
 

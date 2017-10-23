@@ -54,29 +54,11 @@
 
             </div>
 
-            <%--<div style="float: right; margin-top: 0%;">
+
+            <div style="float: right; margin-top: 0%;">
+            <div style="">
                 <h2>Employee Table</h2>
-                <asp:GridView ID="GridViewEmployees" runat="server" AutoGenerateColumns="False">
-                    <Columns>
-                        <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" />
-                        <asp:BoundField DataField="FirstName" HeaderText="FirstName" />
-                        <asp:BoundField DataField="LastName" HeaderText="LastName" />
-                        <asp:BoundField DataField="UserName" HeaderText="UserName" />
-                        <asp:BoundField DataField="Password" HeaderText="Password" />
-                        <asp:BoundField DataField="IsManager" HeaderText="IsManager" />
-
-                        <asp:ButtonField HeaderText="Delete" Text="Delete" />
-                        <asp:ButtonField DataTextField="IsManager" HeaderText="IsManager" Text="Button" />
-
-                    </Columns>
-
-                </asp:GridView>
-            </div>--%>
-
-            <div style="">
-            <div style="">
-                <h2>Employee Table TEST</h2>
-                <asp:GridView ID="GridViewTEST" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewTEST_RowDeleting" OnRowEditing="GridViewTEST_RowEditing" OnRowCancelingEdit="GridViewTEST_RowCancelingEdit" OnRowUpdating="GridViewTEST_RowUpdating">
+                <asp:GridView ID="GridViewEMPLOYEE" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewTEST_RowDeleting" OnRowEditing="GridViewTEST_RowEditing" OnRowCancelingEdit="GridViewTEST_RowCancelingEdit" OnRowUpdating="GridViewTEST_RowUpdating">
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>

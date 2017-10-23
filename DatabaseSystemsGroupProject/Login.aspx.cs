@@ -90,8 +90,7 @@ namespace DatabaseSystemsGroupProject
 
                 if (dataSetOBJ.Tables[0].Rows.Count > 0)
                 {
-                    lblMessage.Visible = true;
-                    lblMessage.Text = "Succesfully Login!";
+                    
 
                     foreach (DataTable table in dataSetOBJ.Tables)
                     {
@@ -100,7 +99,14 @@ namespace DatabaseSystemsGroupProject
                             String tempIsManager = dr["IsManager"].ToString();
                             if (tempIsManager == "yes")
                             {
+                                lblMessage.Visible = true;
+                                lblMessage.Text = "Succesfully Login!";
                                 Response.Redirect("ManagementPage.aspx");
+                            }
+                            else
+                            {
+                                lblMessage.Visible = true;
+                                lblMessage.Text = "You are not a manager in the system!";
                             }
                         }
                     }
