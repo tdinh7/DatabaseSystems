@@ -27,7 +27,7 @@ namespace DatabaseSystemsGroupProject
             }
         }
 
-        
+
         protected void btnCreateEmployee_Click(object sender, EventArgs e)
         {
             String firstName = txtFirstName.Text;
@@ -51,6 +51,11 @@ namespace DatabaseSystemsGroupProject
 
                 lblMessage.ForeColor = System.Drawing.Color.Green;
                 lblMessage.Text = "***Employee Added To The Database***";
+
+                firstName = "";
+                lastName = "";
+                username = "";
+                password = "";
             }
             catch (SqlException ex)
             {
@@ -64,7 +69,7 @@ namespace DatabaseSystemsGroupProject
                 BindEmployeeGridViewEMPLOYEE();//rebinds the EmployeeGridView to reflect the new change
             }
         }
-        
+
 
         protected void BindEmployeeGridViewEMPLOYEE()
         {
@@ -205,6 +210,6 @@ namespace DatabaseSystemsGroupProject
             Response.Redirect("Login.aspx");
         }
 
-  
+
     }
 }

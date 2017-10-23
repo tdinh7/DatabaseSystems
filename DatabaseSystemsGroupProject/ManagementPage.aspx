@@ -13,9 +13,8 @@
         </div>
 
         <div style="margin-top: 5%;">
-
             <div style="float: left; display: inline-block">
-                <h2>Add Employee test test2</h2>
+                <h2>Add Employee Here</h2>
                 <table style="margin-top: 0%;">
                     <tr>
                         <td>&nbsp;First Name:</td>
@@ -42,51 +41,43 @@
                             </asp:DropDownList></td>
                     </tr>
                     <tr>
-
                         <td>&nbsp;<asp:Button ID="btnCreateEmployee" runat="server" Text="Create Employee" BackColor="Green" ForeColor="White" OnClick="btnCreateEmployee_Click" /></td>
-                        <td>&nbsp;<asp:Button ID="btnReturnToLogInPage" runat="server" Text="Return To Login Page" BackColor="Green" ForeColor="White" OnClick="btnReturnToLogInPage_Click1"  /></td>
-
+                        <td>&nbsp;<asp:Button ID="btnReturnToLogInPage" runat="server" Text="Return To Login Page" BackColor="Green" ForeColor="White" OnClick="btnReturnToLogInPage_Click1" /></td>
                     </tr>
 
-                   
                 </table>
-                <h3><asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red"></asp:Label></h3>
-
+                <h3>
+                    <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red"></asp:Label></h3>
             </div>
-
 
             <div style="float: right; margin-top: 0%;">
-            <div style="">
-                <h2>Employee Table</h2>
-                <asp:GridView ID="GridViewEMPLOYEE" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewTEST_RowDeleting" OnRowEditing="GridViewTEST_RowEditing" OnRowCancelingEdit="GridViewTEST_RowCancelingEdit" OnRowUpdating="GridViewTEST_RowUpdating">
-                    <Columns>
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:HiddenField ID="GVEmployeeID" runat="server" Value='<%#DataBinder.Eval(Container.DataItem, "EmployeeID") %>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <%--                        <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" />--%>
-                        <asp:BoundField DataField="FirstName" HeaderText="FirstName" ReadOnly="false" />
-                        <asp:BoundField DataField="LastName" HeaderText="LastName" />
-                        <asp:BoundField DataField="UserName" HeaderText="UserName" />
-                        <asp:BoundField DataField="Password" HeaderText="Password" />
-                        <asp:BoundField DataField="IsManager" HeaderText="IsManager" />
-                        
-                        <asp:CommandField ShowEditButton="True" />
-                        <asp:CommandField ShowDeleteButton="True" />
-                    </Columns>
+                <div style="">
+                    <h2>Employee Table</h2>
+                    <asp:GridView ID="GridViewEMPLOYEE" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewTEST_RowDeleting" OnRowEditing="GridViewTEST_RowEditing" OnRowCancelingEdit="GridViewTEST_RowCancelingEdit" OnRowUpdating="GridViewTEST_RowUpdating">
+                        <Columns>
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:HiddenField ID="GVEmployeeID" runat="server" Value='<%#DataBinder.Eval(Container.DataItem, "EmployeeID") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <%--                        <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" />--%>
+                            <asp:BoundField DataField="FirstName" HeaderText="FirstName" ReadOnly="false" />
+                            <asp:BoundField DataField="LastName" HeaderText="LastName" />
+                            <asp:BoundField DataField="UserName" HeaderText="UserName" />
+                            <asp:BoundField DataField="Password" HeaderText="Password" />
+                            <asp:BoundField DataField="IsManager" HeaderText="IsManager" />
 
-                </asp:GridView>
+                            <asp:CommandField ShowEditButton="True" />
+                            <asp:CommandField ShowDeleteButton="True" />
+                        </Columns>
+
+                    </asp:GridView>
+                </div>
+                <h3>
+                    <asp:Literal ID="ltError" runat="server"></asp:Literal>
+                </h3>
             </div>
-            <h3>
-                <asp:Literal ID="ltError" runat="server"></asp:Literal>
-            </h3>
         </div>
-        </div>
-
-
-
-        
 
     </form>
 </body>
