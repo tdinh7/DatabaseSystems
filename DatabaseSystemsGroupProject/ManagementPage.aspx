@@ -54,7 +54,7 @@
 
             </div>
 
-            <div style="float: right; margin-top: 0%;">
+            <%--<div style="float: right; margin-top: 0%;">
                 <h2>Employee Table</h2>
                 <asp:GridView ID="GridViewEmployees" runat="server" AutoGenerateColumns="False">
                     <Columns>
@@ -71,12 +71,9 @@
                     </Columns>
 
                 </asp:GridView>
-            </div>
-        </div>
+            </div>--%>
 
-
-
-        <div style="margin-top: 40%;">
+            <div style="">
             <div style="">
                 <h2>Employee Table TEST</h2>
                 <asp:GridView ID="GridViewTEST" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewTEST_RowDeleting" OnRowEditing="GridViewTEST_RowEditing" OnRowCancelingEdit="GridViewTEST_RowCancelingEdit" OnRowUpdating="GridViewTEST_RowUpdating">
@@ -103,6 +100,11 @@
                 <asp:Literal ID="ltError" runat="server"></asp:Literal>
             </h3>
         </div>
+        </div>
+
+
+
+        
 
     </form>
 </body>

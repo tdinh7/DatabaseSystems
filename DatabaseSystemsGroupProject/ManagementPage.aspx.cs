@@ -23,7 +23,7 @@ namespace DatabaseSystemsGroupProject
         {
             if (!IsPostBack)//fires on the first page load
             {
-                BindEmployeeGridView();//binds the EmployeeGridView to the Employee table
+                //BindEmployeeGridView();//binds the EmployeeGridView to the Employee table
                 BindEmployeeGridViewTEST();//binds the EmployeeGridView to the Employee tabe
             }
         }
@@ -62,45 +62,45 @@ namespace DatabaseSystemsGroupProject
             finally
             {
                 sqlConnectionOBJ.Close();
-                BindEmployeeGridView();//rebinds the EmployeeGridView to reflect the new change
+                BindEmployeeGridViewTEST();//rebinds the EmployeeGridView to reflect the new change
             }
         }
 
-        protected void BindEmployeeGridView()
-        {
-            sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
+        //protected void BindEmployeeGridView()
+        //{
+        //    sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
 
-            try
-            {
-                sqlConnectionOBJ.Open();
+        //    try
+        //    {
+        //        sqlConnectionOBJ.Open();
 
-                sqlCommandOBJ.CommandText = "SELECT * FROM Employee";
+        //        sqlCommandOBJ.CommandText = "SELECT * FROM Employee";
 
-                sqlCommandOBJ.Connection = sqlConnectionOBJ;
-                sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
-                sqlDataAdapterOBJ.Fill(dataSetOBJ, "Employee");//we are expecting a DataSet/ResultSet back
+        //        sqlCommandOBJ.Connection = sqlConnectionOBJ;
+        //        sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+        //        sqlDataAdapterOBJ.Fill(dataSetOBJ, "Employee");//we are expecting a DataSet/ResultSet back
 
-                if (dataSetOBJ.Tables[0].Rows.Count > 0)
-                {
-                    GridViewEmployees.DataSource = dataSetOBJ;
-                    GridViewEmployees.DataBind();
-                }
-                else
-                {
+        //        if (dataSetOBJ.Tables[0].Rows.Count > 0)
+        //        {
+        //            //GridViewEmployees.DataSource = dataSetOBJ;
+        //            //GridViewEmployees.DataBind();
+        //        }
+        //        else
+        //        {
 
-                }
-            }
-            catch (SqlException ex)
-            {
-                lblMessage.Visible = true;
-                lblMessage.Text = "SqlException*** ERROR***";
-                throw;
-            }
-            finally
-            {
-                sqlConnectionOBJ.Close();
-            }
-        }
+        //        }
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        lblMessage.Visible = true;
+        //        lblMessage.Text = "SqlException*** ERROR***";
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        sqlConnectionOBJ.Close();
+        //    }
+        //}
 
         protected void BindEmployeeGridViewTEST()
         {
@@ -241,9 +241,6 @@ namespace DatabaseSystemsGroupProject
             Response.Redirect("Login.aspx");
         }
 
-        protected void GridViewEmployees_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+  
     }
 }
