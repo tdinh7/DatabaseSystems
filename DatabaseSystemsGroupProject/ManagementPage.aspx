@@ -15,7 +15,7 @@
         <div style="margin-top: 5%;">
 
             <div style="float: left; display: inline-block">
-                <h2>Add Employee</h2>
+                <h2>Add Employee test</h2>
                 <table style="margin-top: 0%;">
                     <tr>
                         <td>&nbsp;First Name:</td>
