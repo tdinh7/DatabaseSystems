@@ -22,7 +22,7 @@
             <h1 style="font-family: sans-serif; color: white;">Management Page</h1>
         </div>
 
-        <div style="margin-top: 5%;">
+        <div style="margin-top: 1%;">
             <div style="float: left; display: inline-block">
                 <h1>Add Employee Here</h1>
                 <table style="margin-top: 0%;background-color:cadetblue;" >
@@ -57,7 +57,7 @@
 
                 </table>
                 <h3>
-                    <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red"></asp:Label></h3>
+                    <asp:Label ID="lblMessage" runat="server" Text="" ForeColor=""></asp:Label></h3>
             </div>
 
             <div style="float: right; margin-top: 0%;">

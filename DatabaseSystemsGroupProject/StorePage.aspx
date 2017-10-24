@@ -54,7 +54,7 @@
                 </table>
                         <asp:Button ID="btnCreateCustomer" runat="server" Text="Create Employee" BackColor="Green" ForeColor="White" OnClick="btnCreateCustomer_Click" />
                 <h3>
-                    <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red"></asp:Label></h3>
+                    <asp:Label ID="lblMessage" runat="server" Text="" ForeColor=""></asp:Label></h3>
             </div>
         </div>
     </form>

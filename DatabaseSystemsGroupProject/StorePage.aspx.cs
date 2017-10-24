@@ -36,7 +36,11 @@ namespace DatabaseSystemsGroupProject
             String firstName = txtFirstName.Text;
             String lastName = txtLastName.Text;
             String email = txtEmail.Text;
-            String theDatetimeRightNow = DateTime.Now.ToShortDateString().ToString();
+            
+            String theDayMonthYear = DateTime.Now.ToShortDateString().ToString();
+            String theTimeInDetailed = DateTime.Now.ToLongTimeString().ToString();
+
+            String bothTimeValuesCombined = theDayMonthYear+" "+theTimeInDetailed;
             //gets values from the textboxes on the user interface
 
             sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
@@ -45,14 +49,14 @@ namespace DatabaseSystemsGroupProject
             {
                 sqlConnectionOBJ.Open();
 
-                sqlCommandOBJ.CommandText = "INSERT INTO Customer(FirstName,LastName,Email,DateJoined) VALUES('" + firstName + "','" + lastName + "','" + email + "','" + theDatetimeRightNow +"')";
+                sqlCommandOBJ.CommandText = "INSERT INTO Customer(FirstName,LastName,Email,DateJoined) VALUES('" + firstName + "','" + lastName + "','" + email + "','" + bothTimeValuesCombined + "')";
 
                 sqlCommandOBJ.Connection = sqlConnectionOBJ;
                 sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
                 sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
                 lblMessage.Visible = true;
 
-                lblMessage.ForeColor = System.Drawing.Color.AliceBlue;
+                lblMessage.ForeColor = System.Drawing.Color.Blue;
                 lblMessage.Text = "***Customer Added To The Database***";
 
 

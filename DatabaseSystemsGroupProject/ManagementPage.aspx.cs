@@ -49,7 +49,7 @@ namespace DatabaseSystemsGroupProject
                 sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
                 lblMessage.Visible = true;
 
-                lblMessage.ForeColor = System.Drawing.Color.White;
+                lblMessage.ForeColor = System.Drawing.Color.Red;
                 lblMessage.Text = "***Employee Added To The Database***";
 
 
