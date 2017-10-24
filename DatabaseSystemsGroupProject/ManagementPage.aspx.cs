@@ -49,13 +49,16 @@ namespace DatabaseSystemsGroupProject
                 sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
                 lblMessage.Visible = true;
 
-                lblMessage.ForeColor = System.Drawing.Color.Green;
+                lblMessage.ForeColor = System.Drawing.Color.White;
                 lblMessage.Text = "***Employee Added To The Database***";
 
-                firstName = "";
-                lastName = "";
-                username = "";
-                password = "";
+
+                //clears the values in the textbox
+                txtFirstName.Text = "";
+                txtLastName.Text = "";
+                txtUserName.Text = "";
+                txtPassword.Text = "";
+                //clears the values in the textbox
             }
             catch (SqlException ex)
             {

@@ -65,7 +65,7 @@
                     <h1>Employee Table</h1>
                     <asp:GridView ID="GridViewEMPLOYEE" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewTEST_RowDeleting" OnRowEditing="GridViewTEST_RowEditing" OnRowCancelingEdit="GridViewTEST_RowCancelingEdit" OnRowUpdating="GridViewTEST_RowUpdating" BackColor="#669999">
                         <Columns>
-                            <asp:TemplateField Visible="False">
+                            <asp:TemplateField Visible="true">
                                 <ItemTemplate>
                                     <asp:HiddenField ID="GVEmployeeID" runat="server" Value='<%#DataBinder.Eval(Container.DataItem, "EmployeeID") %>' />
                                 </ItemTemplate>
