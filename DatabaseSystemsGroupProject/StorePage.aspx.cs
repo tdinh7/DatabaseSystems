@@ -77,5 +77,25 @@ namespace DatabaseSystemsGroupProject
                 sqlConnectionOBJ.Close();
             }
         }
+
+        protected void GridViewCustomer_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+
+        }
+
+        protected void GridViewCustomer_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+        protected void GridViewCustomer_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+
+        }
+
+        protected void GridViewCustomer_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
     }
 }

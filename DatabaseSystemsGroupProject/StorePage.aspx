@@ -8,7 +8,7 @@
 
     <style>
         body {
-            background-image: url(../IMAGES/bg6.jpg);
+            background-image: url(../IMAGES/bg5.jpg);
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -55,6 +55,36 @@
                         <asp:Button ID="btnCreateCustomer" runat="server" Text="Create Employee" BackColor="Green" ForeColor="White" OnClick="btnCreateCustomer_Click" />
                 <h3>
                     <asp:Label ID="lblMessage" runat="server" Text="" ForeColor=""></asp:Label></h3>
+            </div>
+
+
+        </div>
+
+        <div>
+            <div style="float: right; margin-top: 0%;">
+                <div style="">
+                    <h1>Employee Table</h1>
+                    <asp:GridView ID="GridViewCustomer" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewCustomer_RowDeleting" OnRowEditing="GridViewCustomer_RowEditing" OnRowCancelingEdit="GridViewCustomer_RowCancelingEdit" OnRowUpdating="GridViewCustomer_RowUpdating" BackColor="#669999">
+                        <Columns>
+                            <asp:TemplateField Visible="true">
+                                <ItemTemplate>
+                                    <asp:HiddenField ID="CustomerId" runat="server" Value='<%#DataBinder.Eval(Container.DataItem, "EmployeeID") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <%--                        <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" />--%>
+                            <asp:BoundField DataField="FirstName" HeaderText="FirstName" ReadOnly="false" />
+                            <asp:BoundField DataField="LastName" HeaderText="LastName" />
+                            <asp:BoundField DataField="Email" HeaderText="UserName" />
+                            <asp:BoundField DataField="DateJoined" HeaderText="Password" />
+                            <asp:CommandField ShowEditButton="True" />
+                            <asp:CommandField ShowDeleteButton="True" />
+                        </Columns>
+
+                    </asp:GridView>
+                </div>
+                <h3>
+                    <asp:Literal ID="ltError" runat="server"></asp:Literal>
+                </h3>
             </div>
         </div>
     </form>
