@@ -113,12 +113,21 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <%--                        <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" />--%>
-                            <asp:BoundField DataField="Name" HeaderText="FirstName" ReadOnly="false" />
-                            <asp:BoundField DataField="PictureUrl" HeaderText="LastName" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="false" />
+                            <asp:BoundField DataField="PictureUrl" HeaderText="PictureUrl" />
+                            <asp:BoundField DataField="Price" HeaderText="Price" />
                             <asp:TemplateField Visible="true">
                                 <ItemTemplate>
                                     <asp:Image ID="Image1" ImageUrl='<%# Eval("PictureUrl") %>' runat="server" Width="200px" />
                                 </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderText="Select Item" ItemStyle-HorizontalAlign="Center">
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBoxSelectItem" runat="server" CssClass="CheckboxSize" Enabled="true" />
+                                </ItemTemplate>
+
+                                <ItemStyle HorizontalAlign="Center" Width="130px" Height="30px" VerticalAlign="Middle"></ItemStyle>
                             </asp:TemplateField>
 
                             <asp:CommandField ShowEditButton="True" />
@@ -131,12 +140,16 @@
                     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
                 </h3>
             </div>
+
+            <div>
+                <asp:Button ID="btnPuchaseItems" runat="server" Text="Purchase Items" OnClick="btnPuchaseItems_Click" />
+            </div>
         </div>
 
 
         <div>
 
-            <asp:Repeater  ID="ItemRepeater" runat="server" Visible="true" OnItemCommand="ItemRepeater_ItemCommand">
+            <asp:Repeater ID="ItemRepeater" runat="server" Visible="true" OnItemCommand="ItemRepeater_ItemCommand">
                 <ItemTemplate>
                     <table style="border: 1px solid; background-color: #FFF7E7">
                         <tr>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+//using DatabaseSystemsGroupProject;
 
 namespace DatabaseSystemsGroupProject
 {
@@ -16,17 +17,29 @@ namespace DatabaseSystemsGroupProject
         SqlConnection sqlConnectionOBJ = new SqlConnection();
         SqlDataAdapter sqlDataAdapterOBJ = new SqlDataAdapter();
         DataSet dataSetOBJ = new DataSet();
+
+        StoreManager storeManager;
         //global varibles
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)//fires on the first page load
             {
+                storeManager = new StoreManager();
+                Session["storeManagerOBJsession"] = storeManager;
+
                 BindEmployeeGridViewEMPLOYEE();//binds the EmployeeGridView to the Employee tabe
 
                 BindItemGridViewITEM();//binds the EmployeeGridView to the Employee tabe
                 BindItemRepeaterITEM();//binds the EmployeeGridView to the Employee tabe
 
+            }
+            else
+            {
+                if (Session["storeManagerOBJsession"] != null)
+                {
+                    storeManager = (StoreManager)Session["storeManagerOBJsession"];
+                }
             }
         }
 
@@ -244,5 +257,37 @@ namespace DatabaseSystemsGroupProject
 
         }
 
+        protected void btnPuchaseItems_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < ItemGridView.Rows.Count; i++)
+            {
+                CheckBox CheckBoxSelectedItem = (CheckBox)ItemGridView.Rows[i].FindControl("CheckBoxSelectItem");
+                HiddenField ItemIDhidden = (HiddenField)ItemGridView.Rows[i].FindControl("ItemId");
+                //CheckBoxSelectCourseLittlePrep.BackColor = Color.White;
+
+                if (CheckBoxSelectedItem.Checked)//throw an error message if both checkboxes are checked
+                {
+                    int tempItemID = int.Parse(ItemIDhidden.Value.ToString());
+                    string tempPictureUrl = ItemGridView.Rows[i].Cells[2].Text;
+                    string tempName = ItemGridView.Rows[i].Cells[1].Text;
+                    string tempPrice = ItemGridView.Rows[i].Cells[3].Text;
+
+                    if (Session["storeManagerOBJsession"] == null)
+                    {
+                        
+                        storeManager.AddItemToList(tempItemID, tempPictureUrl, tempName, tempPrice);
+                        //storeManager = (StoreManager)Session["storeManagerOBJsession"];
+                        Session["storeManagerOBJsession"] = storeManager;
+                    }
+                    else
+                    {
+                        storeManager = (StoreManager)Session["storeManagerOBJsession"];
+                        storeManager.AddItemToList(tempItemID, tempPictureUrl, tempName, tempPrice);
+
+                        Session["storeManagerOBJsession"] = storeManager;
+                    }
+                }
+            }
+        }
     }
 }
