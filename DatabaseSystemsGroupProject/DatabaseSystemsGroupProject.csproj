@@ -75,6 +75,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="IMAGES\bg1.jpg" />
+    <Content Include="IMAGES\bg2.jpg" />
+    <Content Include="IMAGES\bg3.jpg" />
+    <Content Include="IMAGES\bg4.jpg" />
+    <Content Include="IMAGES\bg5.jpg" />
+    <Content Include="IMAGES\bg6.jpg" />
+    <Content Include="IMAGES\bg7.jpg" />
+    <Content Include="IMAGES\ImagesHot.jpg" />
+    <Content Include="IMAGES\ItemBall.png" />
+    <Content Include="IMAGES\ItemHat.jpg" />
+    <Content Include="IMAGES\ItemSack.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="ManagementPage.aspx" />
     <Content Include="StorePage.aspx" />
@@ -105,9 +116,7 @@
       <DependentUpon>StorePage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IMAGES\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

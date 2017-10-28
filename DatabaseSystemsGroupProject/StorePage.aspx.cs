@@ -24,6 +24,86 @@ namespace DatabaseSystemsGroupProject
             {
                 BindEmployeeGridViewEMPLOYEE();//binds the EmployeeGridView to the Employee tabe
 
+                BindItemGridViewITEM();//binds the EmployeeGridView to the Employee tabe
+                BindItemRepeaterITEM();//binds the EmployeeGridView to the Employee tabe
+
+            }
+        }
+
+        protected void BindItemRepeaterITEM()
+        {
+            sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
+
+            try
+            {
+                sqlConnectionOBJ.Open();
+
+                sqlCommandOBJ.CommandText = "SELECT * FROM Item";
+
+                sqlCommandOBJ.Connection = sqlConnectionOBJ;
+                sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+                sqlDataAdapterOBJ.Fill(dataSetOBJ, "Item");//we are expecting a DataSet/ResultSet back
+
+                if (dataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
+                {
+                    ItemRepeater.DataSource = dataSetOBJ;
+                    ItemRepeater.DataBind();
+                }
+                else
+                {
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                lblMessage.Visible = true;
+                lblMessage.Text = "SqlException*** ERROR*** \n " + ex.Message;
+                throw;
+            }
+            finally
+            {
+                sqlConnectionOBJ.Close();
+                sqlConnectionOBJ.Dispose();
+            }
+        }
+
+        protected void BindItemGridViewITEM()
+        {
+            sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
+
+            try
+            {
+                sqlConnectionOBJ.Open();
+
+                sqlCommandOBJ.CommandText = "SELECT * FROM Item";
+
+                sqlCommandOBJ.Connection = sqlConnectionOBJ;
+                sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+
+                dataSetOBJ = new DataSet();
+
+                sqlDataAdapterOBJ.Fill(dataSetOBJ, "Item");//we are expecting a DataSet/ResultSet back
+
+                if (dataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
+                {
+                    ItemGridView.DataSource = dataSetOBJ;
+                    ItemGridView.DataBind();
+                }
+                else
+                {
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                lblMessage.Visible = true;
+                lblMessage.Text = "SqlException*** ERROR*** \n " + ex.Message;
+                throw;
+            }
+            finally
+            {
+                sqlConnectionOBJ.Close();
+                sqlConnectionOBJ.Dispose();
             }
         }
 
@@ -75,11 +155,11 @@ namespace DatabaseSystemsGroupProject
             String firstName = txtFirstName.Text;
             String lastName = txtLastName.Text;
             String email = txtEmail.Text;
-            
+
             String theDayMonthYear = DateTime.Now.ToShortDateString().ToString();
             String theTimeInDetailed = DateTime.Now.ToLongTimeString().ToString();
 
-            String bothTimeValuesCombined = theDayMonthYear+" "+theTimeInDetailed;
+            String bothTimeValuesCombined = theDayMonthYear + " " + theTimeInDetailed;
             //gets values from the textboxes on the user interface
 
             sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
@@ -136,5 +216,33 @@ namespace DatabaseSystemsGroupProject
         {
 
         }
+
+
+        protected void GridViewItem_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+
+        protected void GridViewItem_RowEditing(object sender, GridViewCancelEditEventArgs e)
+        {
+
+        }
+
+        protected void GridViewItem_RowCancelingEdit(object sender, GridViewEditEventArgs e)
+        {
+
+        }
+
+        protected void GridViewItem_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+
+        }
+
+        protected void ItemRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
+        }
+
     }
 }
