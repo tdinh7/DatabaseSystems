@@ -68,7 +68,7 @@
                         <Columns>
                             <asp:TemplateField Visible="true">
                                 <ItemTemplate>
-                                    <asp:HiddenField ID="CustomerId" runat="server" Value='<%#DataBinder.Eval(Container.DataItem, "EmployeeID") %>' />
+                                    <asp:HiddenField ID="CustomerId" runat="server" Value='<%#DataBinder.Eval(Container.DataItem, "CustomerId") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <%--                        <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" />--%>

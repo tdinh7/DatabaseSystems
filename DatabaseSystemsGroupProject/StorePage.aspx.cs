@@ -22,6 +22,45 @@ namespace DatabaseSystemsGroupProject
         {
             if (!IsPostBack)//fires on the first page load
             {
+                BindEmployeeGridViewEMPLOYEE();//binds the EmployeeGridView to the Employee tabe
+
+            }
+        }
+
+        protected void BindEmployeeGridViewEMPLOYEE()
+        {
+            sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
+
+            try
+            {
+                sqlConnectionOBJ.Open();
+
+                sqlCommandOBJ.CommandText = "SELECT * FROM Customer";
+
+                sqlCommandOBJ.Connection = sqlConnectionOBJ;
+                sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+                sqlDataAdapterOBJ.Fill(dataSetOBJ, "Employee");//we are expecting a DataSet/ResultSet back
+
+                if (dataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
+                {
+                    GridViewCustomer.DataSource = dataSetOBJ;
+                    GridViewCustomer.DataBind();
+                }
+                else
+                {
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                lblMessage.Visible = true;
+                lblMessage.Text = "SqlException*** ERROR*** \n " + ex.Message;
+                throw;
+            }
+            finally
+            {
+                sqlConnectionOBJ.Close();
+                sqlConnectionOBJ.Dispose();
             }
         }
 
