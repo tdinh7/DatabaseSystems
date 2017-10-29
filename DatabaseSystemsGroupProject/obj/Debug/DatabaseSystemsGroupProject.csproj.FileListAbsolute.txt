@@ -49,7 +49,6 @@ C:\Users\tuf77728\source\repos\DatabaseSystemsGroupProject\DatabaseSystemsGroupP
 C:\Users\tuf77728\source\repos\DatabaseSystemsGroupProject\DatabaseSystemsGroupProject\bin\DatabaseSystemsGroupProject.dll.config
 C:\Users\tuf77728\source\repos\DatabaseSystemsGroupProject\DatabaseSystemsGroupProject\bin\DatabaseSystemsGroupProject.dll
 C:\Users\tuf77728\source\repos\DatabaseSystemsGroupProject\DatabaseSystemsGroupProject\bin\DatabaseSystemsGroupProject.pdb
-C:\Users\tuf77728\source\repos\DatabaseSystemsGroupProject\DatabaseSystemsGroupProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\tuf77728\source\repos\DatabaseSystemsGroupProject\DatabaseSystemsGroupProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\tuf77728\source\repos\DatabaseSystemsGroupProject\DatabaseSystemsGroupProject\obj\Debug\DatabaseSystemsGroupProject.csprojResolveAssemblyReference.cache
 C:\Users\tuf77728\source\repos\DatabaseSystemsGroupProject\DatabaseSystemsGroupProject\obj\Debug\DatabaseSystemsGroupProject.csproj.CoreCompileInputs.cache
