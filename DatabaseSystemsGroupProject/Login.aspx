@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-md-4">
 
-                    <div style="margin-top:50%">
+                    <div style="margin-top: 50%">
                         <table style="">
                             <tr>
                                 <td>&nbsp;Username:</td>

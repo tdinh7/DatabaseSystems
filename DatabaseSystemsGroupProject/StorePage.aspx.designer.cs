@@ -112,6 +112,15 @@ namespace DatabaseSystemsGroupProject {
         protected global::System.Web.UI.WebControls.Literal Literal1;
         
         /// <summary>
+        /// txtCustomerID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCustomerID;
+        
+        /// <summary>
         /// btnPuchaseItems control.
         /// </summary>
         /// <remarks>
@@ -121,12 +130,21 @@ namespace DatabaseSystemsGroupProject {
         protected global::System.Web.UI.WebControls.Button btnPuchaseItems;
         
         /// <summary>
-        /// ItemRepeater control.
+        /// GridViewOrderRecord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater ItemRepeater;
+        protected global::System.Web.UI.WebControls.GridView GridViewOrderRecord;
+        
+        /// <summary>
+        /// GridViewOrderItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewOrderItem;
     }
 }

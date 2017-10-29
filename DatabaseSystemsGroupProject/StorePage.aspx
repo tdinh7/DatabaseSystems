@@ -71,14 +71,28 @@
             </div>
         </div>
 
-            --%>
+            <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-4">
+                </div>
+            <div class="col-md-1">
+                </div>
+            </div>
+        </div>
 
-
-
-
+        --%>
 
         <div class="container-fluid">
             <div class="row">
+                <div class="col-md-1">
+
+                </div>
                 <div class="col-md-4">
                     <div>
                         <div style="">
@@ -97,13 +111,13 @@
                                     <td>&nbsp;<asp:TextBox ID="txtEmail" runat="server" placeholder="Enter Email"></asp:TextBox></td>
                                 </tr>
                             </table>
-                            <asp:Button ID="btnCreateCustomer" runat="server" Text="Create Employee" BackColor="Green" ForeColor="White" OnClick="btnCreateCustomer_Click" />
+                            <asp:Button ID="btnCreateCustomer" CssClass="btn btn-success" runat="server" Text="Create Customer" BackColor="" ForeColor="Black" OnClick="btnCreateCustomer_Click" />
                             <h3>
                                 <asp:Label ID="lblMessage" runat="server" Text="" ForeColor=""></asp:Label></h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                 </div>
                 <div class="col-md-4">
                     <div>
@@ -117,7 +131,6 @@
                                                 <asp:HiddenField ID="CustomerId" runat="server" Value='<%#DataBinder.Eval(Container.DataItem, "CustomerId") %>' />
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <%--                        <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" />--%>
                                         <asp:BoundField DataField="FirstName" HeaderText="FirstName" ReadOnly="false" />
                                         <asp:BoundField DataField="LastName" HeaderText="LastName" />
                                         <asp:BoundField DataField="Email" HeaderText="UserName" />
@@ -125,7 +138,6 @@
                                         <asp:CommandField ShowEditButton="True" />
                                         <asp:CommandField ShowDeleteButton="True" />
                                     </Columns>
-
                                 </asp:GridView>
                             </div>
                             <h3>
@@ -134,11 +146,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-1">
+
+                </div>
             </div>
         </div>
-
-
-
 
         <div class="container-fluid">
             <div class="row">
@@ -158,6 +170,13 @@
                                         <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="false" />
                                         <asp:BoundField DataField="PictureUrl" HeaderText="PictureUrl" />
                                         <asp:BoundField DataField="Price" HeaderText="Price" />
+
+                                        <asp:TemplateField Visible="true">
+                                            <ItemTemplate>
+                                                <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
                                         <asp:TemplateField Visible="true">
                                             <ItemTemplate>
                                                 <asp:Image ID="Image1" ImageUrl='<%# Eval("PictureUrl") %>' runat="server" Width="200px" />
@@ -183,18 +202,24 @@
                             </h3>
                         </div>
 
-                        <div>
-                            <asp:Button ID="btnPuchaseItems" runat="server" Text="Purchase Items" OnClick="btnPuchaseItems_Click" />
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <table>
-
-                    </table>
                 </div>
                 <div class="col-md-4">
+                    <table style="margin-top: 0%; background-color: cadetblue;">
+                        <tr>
+                            <td>&nbsp;CustomerID:</td>
+                            <td>&nbsp;<asp:TextBox ID="txtCustomerID" runat="server" placeholder="Enter CustomerID"></asp:TextBox></td>
+                        </tr>
+
+                    </table>
                     <div>
+                        <asp:Button ID="btnPuchaseItems" CssClass="btn btn-info" runat="server" Text="Purchase Items" OnClick="btnPuchaseItems_Click" />
+                    </div>
+
+                    <%--<div>
                         <asp:Repeater ID="ItemRepeater" runat="server" Visible="false" OnItemCommand="ItemRepeater_ItemCommand">
                             <ItemTemplate>
                                 <table style="border: 1px solid; background-color: #FFF7E7">
@@ -229,7 +254,49 @@
 
                             </ItemTemplate>
                         </asp:Repeater>
+                    </div>--%>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <br />
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-4">
+                    <div style="">
+                        <h1>OrderRecord Table</h1>
+                        <asp:GridView ID="GridViewOrderRecord" runat="server" AutoGenerateColumns="False" BackColor="#669999">
+                            <Columns>
+                                <asp:BoundField DataField="OrderRecordID" HeaderText="OrderRecordID" ReadOnly="true" />
+                                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" />
+                                <asp:BoundField DataField="DateOrdered" HeaderText="DateOrdered" />
+                                <asp:BoundField DataField="NumberOfItems" HeaderText="NumberOfItems" />
+                                <asp:BoundField DataField="TotalPrice" HeaderText="TotalPrice" />
+
+                            </Columns>
+                        </asp:GridView>
                     </div>
+                </div>
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-4">
+                    <div style="">
+                        <h1>OrderItem Table</h1>
+                        <asp:GridView ID="GridViewOrderItem" runat="server" AutoGenerateColumns="False" BackColor="#669999">
+                            <Columns>
+                                <asp:BoundField DataField="OrderItemID" HeaderText="OrderItemID" ReadOnly="true" />
+                                <asp:BoundField DataField="OrderRecordID" HeaderText="OrderRecordID" />
+                                <asp:BoundField DataField="ItemID" HeaderText="ItemID" />
+                                <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                            </Columns>
+                        </asp:GridView>
+                    </div>
+                </div>
+                <div class="col-md-1">
                 </div>
             </div>
         </div>

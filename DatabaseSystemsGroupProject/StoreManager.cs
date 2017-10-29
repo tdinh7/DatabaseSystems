@@ -8,14 +8,14 @@ namespace DatabaseSystemsGroupProject
 {
     public class StoreManager
     {
-        List<Item> itemList;
+        public List<Item> itemList;
 
         public StoreManager() {
             itemList = new List<Item>();
         }
 
-        public Boolean AddItemToList(int tempItemID, string pictureUrl, string name, string price) {
-            Item tempItem = new Item(tempItemID, pictureUrl, name, price);
+        public Boolean AddItemToList(int tempItemID, string pictureUrl, string name, string price, int quantity) {
+            Item tempItem = new Item(tempItemID, pictureUrl, name, price, quantity);
             itemList.Add(tempItem);
             return true;
         }

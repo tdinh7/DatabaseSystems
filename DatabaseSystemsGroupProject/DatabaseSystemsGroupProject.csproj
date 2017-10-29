@@ -198,6 +198,7 @@
     <Compile Include="StorePage.aspx.designer.cs">
       <DependentUpon>StorePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TuDinhInputCheckers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
