@@ -19,6 +19,9 @@
     <!--Custom CSS-->
     <link href="Content/style.css" rel="stylesheet" />
 
+    <link href="Bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="Bootstrap/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
+
     <!--Scripts-->
     <script src="Scripts/jquery-2.2.1.min.js"></script>
     <script src="Scripts/jquery.validate.unobtrusive.bootstrap.js"></script>
@@ -91,7 +94,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-1">
-
                 </div>
                 <div class="col-md-4">
                     <div>
@@ -112,6 +114,8 @@
                                 </tr>
                             </table>
                             <asp:Button ID="btnCreateCustomer" CssClass="btn btn-success" runat="server" Text="Create Customer" BackColor="" ForeColor="Black" OnClick="btnCreateCustomer_Click" />
+
+
                             <h3>
                                 <asp:Label ID="lblMessage" runat="server" Text="" ForeColor=""></asp:Label></h3>
                         </div>
@@ -123,7 +127,7 @@
                     <div>
                         <div style="">
                             <div style="">
-                                <h1>Employee Table</h1>
+                                <h1>Customer Table</h1>
                                 <asp:GridView ID="GridViewCustomer" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewCustomer_RowDeleting" OnRowEditing="GridViewCustomer_RowEditing" OnRowCancelingEdit="GridViewCustomer_RowCancelingEdit" OnRowUpdating="GridViewCustomer_RowUpdating" BackColor="#669999">
                                     <Columns>
                                         <asp:TemplateField Visible="true">
@@ -133,8 +137,9 @@
                                         </asp:TemplateField>
                                         <asp:BoundField DataField="FirstName" HeaderText="FirstName" ReadOnly="false" />
                                         <asp:BoundField DataField="LastName" HeaderText="LastName" />
-                                        <asp:BoundField DataField="Email" HeaderText="UserName" />
-                                        <asp:BoundField DataField="DateJoined" HeaderText="Password" />
+                                        <asp:BoundField DataField="Email" HeaderText="Email" />
+                                        <asp:BoundField DataField="DateJoined" HeaderText="DateJoined" />
+                                        <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" />
                                         <asp:CommandField ShowEditButton="True" />
                                         <asp:CommandField ShowDeleteButton="True" />
                                     </Columns>
@@ -147,7 +152,6 @@
                     </div>
                 </div>
                 <div class="col-md-1">
-
                 </div>
             </div>
         </div>
@@ -159,44 +163,46 @@
                         <div style="">
                             <div style="">
                                 <h1>Item GridView</h1>
-                                <asp:GridView ID="ItemGridView" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewItem_RowDeleting" OnRowEditing="GridViewItem_RowCancelingEdit" OnRowCancelingEdit="GridViewItem_RowEditing" OnRowUpdating="GridViewItem_RowUpdating" BackColor="#669999">
-                                    <Columns>
-                                        <asp:TemplateField Visible="true">
-                                            <ItemTemplate>
-                                                <asp:HiddenField ID="ItemId" runat="server" Value='<%#DataBinder.Eval(Container.DataItem, "ItemId") %>' />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <%--                        <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" />--%>
-                                        <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="false" />
-                                        <asp:BoundField DataField="PictureUrl" HeaderText="PictureUrl" />
-                                        <asp:BoundField DataField="Price" HeaderText="Price" />
-
-                                        <asp:TemplateField Visible="true">
-                                            <ItemTemplate>
-                                                <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-
-                                        <asp:TemplateField Visible="true">
-                                            <ItemTemplate>
-                                                <asp:Image ID="Image1" ImageUrl='<%# Eval("PictureUrl") %>' runat="server" Width="200px" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-
-                                        <asp:TemplateField HeaderText="Select Item" ItemStyle-HorizontalAlign="Center">
-                                            <ItemTemplate>
-                                                <asp:CheckBox ID="CheckBoxSelectItem" runat="server" CssClass="CheckboxSize" Enabled="true" />
-                                            </ItemTemplate>
-
-                                            <ItemStyle HorizontalAlign="Center" Width="130px" Height="30px" VerticalAlign="Middle"></ItemStyle>
-                                        </asp:TemplateField>
-
-                                        <asp:CommandField ShowEditButton="True" />
-                                        <asp:CommandField ShowDeleteButton="True" />
-                                    </Columns>
-
-                                </asp:GridView>
                             </div>
+                            <asp:GridView ID="ItemGridView" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewItem_RowDeleting" OnRowEditing="GridViewItem_RowCancelingEdit" OnRowCancelingEdit="GridViewItem_RowEditing" OnRowUpdating="GridViewItem_RowUpdating" BackColor="#669999">
+                                <Columns>
+                                    <asp:TemplateField Visible="true">
+                                        <ItemTemplate>
+                                            <asp:HiddenField ID="ItemId" runat="server" Value='<%#DataBinder.Eval(Container.DataItem, "ItemId") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <%--                        <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" />--%>
+                                    <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="false" />
+                                    <asp:BoundField DataField="PictureUrl" HeaderText="PictureUrl" />
+                                    <asp:BoundField DataField="Price" HeaderText="Price" />
+
+                                    <asp:TemplateField Visible="true">
+                                        <ItemTemplate>
+                                            <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField Visible="true">
+                                        <ItemTemplate>
+                                            <asp:Image ID="Image1" ImageUrl='<%# Eval("PictureUrl") %>' runat="server" Width="200px" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="Select Item" ItemStyle-HorizontalAlign="Center">
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="CheckBoxSelectItem" runat="server" CssClass="CheckboxSize" Enabled="true" />
+                                        </ItemTemplate>
+
+                                        <ItemStyle HorizontalAlign="Center" Width="130px" Height="30px" VerticalAlign="Middle"></ItemStyle>
+                                    </asp:TemplateField>
+
+                                    <asp:CommandField ShowEditButton="True" />
+                                    <asp:CommandField ShowDeleteButton="True" />
+                                </Columns>
+
+                            </asp:GridView>
+
+
                             <h3>
                                 <asp:Literal ID="Literal1" runat="server"></asp:Literal>
                             </h3>
@@ -217,6 +223,7 @@
                     </table>
                     <div>
                         <asp:Button ID="btnPuchaseItems" CssClass="btn btn-info" runat="server" Text="Purchase Items" OnClick="btnPuchaseItems_Click" />
+                        <asp:Label ID="lblItemsPurchased" runat="server" Text="Label" Visible="false"></asp:Label>
                     </div>
 
                     <%--<div>
