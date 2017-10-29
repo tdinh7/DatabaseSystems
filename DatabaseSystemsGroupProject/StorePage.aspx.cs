@@ -31,6 +31,8 @@ namespace DatabaseSystemsGroupProject
                 BindEmployeeGridViewEMPLOYEE();//binds the EmployeeGridView to the Employee tabe
 
                 BindItemGridViewITEM();//binds the EmployeeGridView to the Employee tabe
+                BindOrderRecordGridViewITEM();// binds data to the GridViewOrderRecord gridview control
+                BindOrderItemGridViewITEM();// binds data to the GridViewOrderItem gridview control
                 //BindItemRepeaterITEM();//binds the EmployeeGridView to the Employee tabe
 
             }
@@ -40,6 +42,86 @@ namespace DatabaseSystemsGroupProject
                 {
                     storeManager = (StoreManager)Session["storeManagerOBJsession"];
                 }
+            }
+        }
+
+        protected void BindOrderItemGridViewITEM()
+        {
+            sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
+
+            try
+            {
+                sqlConnectionOBJ.Open();
+
+                sqlCommandOBJ.CommandText = "SELECT * FROM OrderItem";
+
+                sqlCommandOBJ.Connection = sqlConnectionOBJ;
+                sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+
+                dataSetOBJ = new DataSet();
+
+                sqlDataAdapterOBJ.Fill(dataSetOBJ, "OrderItem");//we are expecting a DataSet/ResultSet back
+
+                if (dataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
+                {
+                    GridViewOrderItem.DataSource = dataSetOBJ;
+                    GridViewOrderItem.DataBind();
+                }
+                else
+                {
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                lblMessage.Visible = true;
+                lblMessage.Text = "SqlException*** ERROR*** \n " + ex.Message;
+                throw;
+            }
+            finally
+            {
+                sqlConnectionOBJ.Close();
+                sqlConnectionOBJ.Dispose();
+            }
+        }
+
+        protected void BindOrderRecordGridViewITEM()
+        {
+            sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
+
+            try
+            {
+                sqlConnectionOBJ.Open();
+
+                sqlCommandOBJ.CommandText = "SELECT * FROM OrderRecord";
+
+                sqlCommandOBJ.Connection = sqlConnectionOBJ;
+                sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+
+                dataSetOBJ = new DataSet();
+
+                sqlDataAdapterOBJ.Fill(dataSetOBJ, "OrderRecord");//we are expecting a DataSet/ResultSet back
+
+                if (dataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
+                {
+                    GridViewOrderRecord.DataSource = dataSetOBJ;
+                    GridViewOrderRecord.DataBind();
+                }
+                else
+                {
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                lblMessage.Visible = true;
+                lblMessage.Text = "SqlException*** ERROR*** \n " + ex.Message;
+                throw;
+            }
+            finally
+            {
+                sqlConnectionOBJ.Close();
+                sqlConnectionOBJ.Dispose();
             }
         }
 
