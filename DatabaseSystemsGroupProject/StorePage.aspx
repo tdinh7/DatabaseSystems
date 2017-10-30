@@ -177,19 +177,21 @@
                                     <asp:BoundField DataField="PictureUrl" HeaderText="PictureUrl" />
                                     <asp:BoundField DataField="Price" HeaderText="Price" />
 
-                                    <asp:TemplateField Visible="true" HeaderText="Quantity">
+                                    <asp:TemplateField Visible="true" HeaderText="Quantity" ControlStyle-Width="50px">
                                         <ItemTemplate>
                                             <asp:TextBox ID="txtQuantity" runat="server"  ></asp:TextBox>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField Visible="true" HeaderText="Picture" >
+                                    <asp:TemplateField Visible="true" HeaderText="Picture" ControlStyle-Width="170px">
                                         <ItemTemplate>
+<%--                                            <asp:Image ID="Image1" class="img-thumbnail" ImageUrl='<%# Eval("PictureUrl") %>' runat="server" Width="200px" />--%>
                                             <asp:Image ID="Image1" class="img-rounded" ImageUrl='<%# Eval("PictureUrl") %>' runat="server" Width="200px" />
+
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Select Item" ItemStyle-HorizontalAlign="Center">
+                                    <asp:TemplateField HeaderText="Select Item" ItemStyle-HorizontalAlign="Center" ControlStyle-Width="150px">
                                         <ItemTemplate>
                                             <asp:CheckBox ID="CheckBoxSelectItem" runat="server" CssClass="CheckboxSize" Enabled="true" />
                                         </ItemTemplate>

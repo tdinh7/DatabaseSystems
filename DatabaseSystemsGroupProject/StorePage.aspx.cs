@@ -366,7 +366,7 @@ namespace DatabaseSystemsGroupProject
             try
             {
                 sqlConnectionOBJ.Open();
-                String sqlStatement = String.Format("UPDATE Customer SET FirstName='{0}', LastName='{1}', Email = '{2}', DateJoined = '{3} WHERE CustomerID={4}", txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtDateJoined.Text, int.Parse(customerIDhidden.Value.ToString()));
+                String sqlStatement = String.Format("UPDATE Customer SET FirstName='{0}', LastName='{1}', Email = '{2}', DateJoined = '{3}' WHERE CustomerID = {4}", txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtDateJoined.Text, int.Parse(customerIDhidden.Value.ToString()));
 
                 sqlCommandOBJ.CommandText = sqlStatement;
 
@@ -458,7 +458,7 @@ namespace DatabaseSystemsGroupProject
             try
             {
                 sqlConnectionOBJ.Open();
-                String sqlStatement = String.Format("UPDATE Item SET Name = '{0}', PictureUrl='{1}', Price = '{2}' WHERE ItemID={4}", txtName.Text, txtPictureUrl.Text, txtPrice.Text, int.Parse(itemIDhidden.Value.ToString()));
+                String sqlStatement = String.Format("UPDATE Item SET Name = '{0}', PictureUrl='{1}', Price = '{2}' WHERE ItemID={3}", txtName.Text, txtPictureUrl.Text, txtPrice.Text, int.Parse(itemIDhidden.Value.ToString()));
 
                 sqlCommandOBJ.CommandText = sqlStatement;
 
