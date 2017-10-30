@@ -297,6 +297,7 @@ namespace DatabaseSystemsGroupProject
                 sqlConnectionOBJ.Close();
             }
             BindAllGridViewControlsOnPage();//rebinds data to all gridview controls on the page
+            lblItemsPurchased.Visible = false;
         }
 
         protected void GridViewCustomer_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -652,6 +653,7 @@ namespace DatabaseSystemsGroupProject
             //***for each item in the list, you need to create a CartItem record
 
             BindAllGridViewControlsOnPage();//rebinds data to all gridview controls on the page
+            lblMessage.Visible = false;
         }
     }
 }

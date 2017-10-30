@@ -9,7 +9,8 @@
         body {
             background-image: url(../IMAGES/bg5.jpg);
             background-repeat: no-repeat;
-            background-size: cover;
+            background-attachment: fixed;
+            background-size: 100%;
         }
     </style>
     <!--Bootstrap CSS-->
@@ -176,15 +177,15 @@
                                     <asp:BoundField DataField="PictureUrl" HeaderText="PictureUrl" />
                                     <asp:BoundField DataField="Price" HeaderText="Price" />
 
-                                    <asp:TemplateField Visible="true">
+                                    <asp:TemplateField Visible="true" HeaderText="Quantity">
                                         <ItemTemplate>
-                                            <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtQuantity" runat="server"  ></asp:TextBox>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField Visible="true">
+                                    <asp:TemplateField Visible="true" HeaderText="Picture" >
                                         <ItemTemplate>
-                                            <asp:Image ID="Image1" ImageUrl='<%# Eval("PictureUrl") %>' runat="server" Width="200px" />
+                                            <asp:Image ID="Image1" class="img-rounded" ImageUrl='<%# Eval("PictureUrl") %>' runat="server" Width="200px" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
@@ -223,6 +224,9 @@
                     </table>
                     <div>
                         <asp:Button ID="btnPuchaseItems" CssClass="btn btn-info" runat="server" Text="Purchase Items" OnClick="btnPuchaseItems_Click" />
+
+                    </div>
+                    <div>
                         <asp:Label ID="lblItemsPurchased" runat="server" Text="Label" Visible="false"></asp:Label>
                     </div>
 
