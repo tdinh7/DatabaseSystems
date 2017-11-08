@@ -36,11 +36,11 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" id="theNavbarBrand" href="#" style="color: #fff">Gift Shop Log In Page</a>
                 </div>
-                <ul class="nav navbar-nav">
+                <%--<ul class="nav navbar-nav">
                     <li><a href="#" style="color: #fff">Something 1</a></li>
                     <li><a href="#" style="color: #fff">Something 2</a></li>
 
-                </ul>
+                </ul>--%>
                 <ul class="nav navbar-nav navbar-right" style="padding-top: 8px; padding-right: 10px;">
                     <asp:Button ID="btnLogout" CssClass="btn btn-primary" Text="Logout" runat="server" Visible="False" />
                 </ul>

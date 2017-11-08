@@ -123,6 +123,16 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="IMAGES\Hotsauce.jpg" />
+    <Content Include="IMAGES\kitkat.jpg" />
+    <Content Include="IMAGES\lotion.jpg" />
+    <Content Include="IMAGES\nutCracker.jpg" />
+    <Content Include="IMAGES\nuts2.jpg" />
+    <Content Include="IMAGES\peanuts.png" />
+    <Content Include="IMAGES\rack.jpeg" />
+    <Content Include="IMAGES\rack2.jpg" />
+    <Content Include="IMAGES\sugar.jpg" />
+    <Content Include="IMAGES\wifeBeater.jpg" />
     <Content Include="obj\Debug\DatabaseSystemsGroupProject.csproj.CopyComplete" />
     <Content Include="obj\Debug\DatabaseSystemsGroupProject.csproj.CoreCompileInputs.cache" />
     <Content Include="obj\Debug\DatabaseSystemsGroupProject.csprojResolveAssemblyReference.cache" />
