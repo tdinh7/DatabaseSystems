@@ -322,15 +322,29 @@ namespace DatabaseSystemsGroupProject
                 String sqlStatement = String.Format("SELECT * FROM OrderRecord Where CustomerID ={0}", int.Parse(customerIDHidden.Value.ToString()));
 
                 sqlCommandOBJ.CommandText = sqlStatement;
+                sqlCommandOBJ.Connection = sqlConnectionOBJ;
+
                 sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
 
                 DataSet customerDataSetOBJ = new DataSet();
 
                 sqlDataAdapterOBJ.Fill(customerDataSetOBJ, "OrderRecord");//we are expecting a DataSet/ResultSet back
 
-                if (dataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
+                //gets the stored 'StoreManager' object stored in the session object 
+                storeManager = (StoreManager)Session["storeManagerOBJsession"];
+
+                if (customerDataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
                 {
                     //loop through each row and create an object for each row
+                    foreach (DataRow row in customerDataSetOBJ.Tables[0].Rows)
+                    {
+                        String orderRecordID = row["OrderRecordID"].ToString();
+                        String customerID = row["CustomerID"].ToString();
+                        String dateOrdered = row["DateOrdered"].ToString();
+                        String numberOfItems = row["NumberOfItems"].ToString();
+                        String totalPrice = row["TotalPrice"].ToString();
+                        storeManager.AddOrderRecordToList(orderRecordID, customerID, dateOrdered, numberOfItems, totalPrice);
+                    }
                 }
                 else
                 {
@@ -356,36 +370,34 @@ namespace DatabaseSystemsGroupProject
 
             //code to get all of the records in the OrderRecords table that has a CustomerID = customerIDHidden
 
-            try
-            {
-                sqlConnectionOBJ.Open();
-                String sqlStatement = String.Format("DELETE FROM Customer WHERE CustomerId={0}", int.Parse(customerIDHidden.Value.ToString()));
+            //try
+            //{
+            //    sqlConnectionOBJ.Open();
+            //    String sqlStatement = String.Format("DELETE FROM Customer WHERE CustomerId={0}", int.Parse(customerIDHidden.Value.ToString()));
 
-                sqlCommandOBJ.CommandText = sqlStatement;
-                sqlCommandOBJ.Connection = sqlConnectionOBJ;
+            //    sqlCommandOBJ.CommandText = sqlStatement;
+            //    sqlCommandOBJ.Connection = sqlConnectionOBJ;
 
-                sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+            //    sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
 
-                sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
+                
+            //    sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
 
-                GridViewCustomer.EditIndex = -1;//reset index
-            }
-            catch (SqlException ex)
-            {
-                lblMessage.Visible = true;
-                ltError.Text = "***SqlException*** ERROR*** \n" + ex.Message;
+            //    GridViewCustomer.EditIndex = -1;//reset index
+            //}
+            //catch (SqlException ex)
+            //{
+            //    lblMessage.Visible = true;
+            //    ltError.Text = "***SqlException*** ERROR*** \n" + ex.Message;
+            //    throw;//wtf is this???
+            //}
+            //finally
+            //{
+            //    sqlConnectionOBJ.Close();
+            //    sqlConnectionOBJ.Dispose();
 
-
-
-                throw;//wtf is this???
-            }
-            finally
-            {
-                sqlConnectionOBJ.Close();
-                sqlConnectionOBJ.Dispose();
-
-                BindAllGridViewControlsOnPage();//rebinds data to all gridview controls on the page           
-            }
+            //    BindAllGridViewControlsOnPage();//rebinds data to all gridview controls on the page           
+            //}
         }
 
         protected void GridViewCustomer_RowEditing(object sender, GridViewEditEventArgs e)
@@ -555,8 +567,6 @@ namespace DatabaseSystemsGroupProject
 
                 if (CheckBoxSelectedItem.Checked)//throw an error message if both checkboxes are checked
                 {
-
-
                     int tempItemID = int.Parse(ItemIDhidden.Value.ToString());
                     string tempPictureUrl = ItemGridView.Rows[i].Cells[2].Text;
                     string tempName = ItemGridView.Rows[i].Cells[1].Text;
