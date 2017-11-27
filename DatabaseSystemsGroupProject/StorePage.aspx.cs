@@ -312,6 +312,49 @@ namespace DatabaseSystemsGroupProject
             HiddenField customerIDHidden = (HiddenField)gvRow.FindControl("CustomerId");
 
             sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
+            //code to get all of the records in the OrderRecords table that has a CustomerID = customerIDHidden
+
+            //SELECT * FROM OrderRecord WHERE CustomerID = customerIDHidden
+            try
+            {
+                sqlConnectionOBJ.Open();
+
+                String sqlStatement = String.Format("SELECT * FROM OrderRecord Where CustomerID ={0}", int.Parse(customerIDHidden.Value.ToString()));
+
+                sqlCommandOBJ.CommandText = sqlStatement;
+                sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+
+                DataSet customerDataSetOBJ = new DataSet();
+
+                sqlDataAdapterOBJ.Fill(customerDataSetOBJ, "OrderRecord");//we are expecting a DataSet/ResultSet back
+
+                if (dataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
+                {
+                    //loop through each row and create an object for each row
+                }
+                else
+                {
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                lblMessage.Visible = true;
+                lblMessage.Text = "SqlException*** ERROR*** \n " + ex.Message;
+                throw;
+            }
+            finally
+            {
+                sqlConnectionOBJ.Close();
+                sqlConnectionOBJ.Dispose();
+            }
+
+            //Loop through the dataset and create an object for each record and store this in an Arraylist
+
+            //Loop through this ArrayList of OrderRecord objects, for each object's OrderRecordID:
+            //DELETE * FROM OrderItem WHERE OrderRecordID = "object's OrderRecordID"
+
+            //code to get all of the records in the OrderRecords table that has a CustomerID = customerIDHidden
 
             try
             {

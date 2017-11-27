@@ -79,11 +79,11 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-5">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
 
-                    <div style="margin-top: 50%">
+                    <div style="margin-top: 90%">
                         <table style="">
                             <tr>
                                 <td>&nbsp;Username:</td>

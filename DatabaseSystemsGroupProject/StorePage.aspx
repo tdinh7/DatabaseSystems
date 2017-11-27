@@ -27,6 +27,9 @@
     <script src="Scripts/jquery-2.2.1.min.js"></script>
     <script src="Scripts/jquery.validate.unobtrusive.bootstrap.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
+
+
+
 </head>
 <body>
     <form id="form1" runat="server">
