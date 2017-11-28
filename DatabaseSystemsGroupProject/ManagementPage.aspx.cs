@@ -49,8 +49,8 @@ namespace DatabaseSystemsGroupProject
                 sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
                 lblMessage.Visible = true;
 
-                lblMessage.ForeColor = System.Drawing.Color.Red;
-                lblMessage.Text = "***Employee Added To The Database***";
+                lblMessage.ForeColor = System.Drawing.Color.White;
+                lblMessage.Text = "*Employee Added*";
 
 
                 //clears the values in the textbox
@@ -140,9 +140,7 @@ namespace DatabaseSystemsGroupProject
                 lblMessage.Visible = true;
                 ltError.Text = "***SqlException*** ERROR*** \n" + ex.Message;
 
-
-
-                throw;//wtf is this???
+                throw;
             }
             finally
             {

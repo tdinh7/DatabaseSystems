@@ -12,6 +12,15 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        
+        .betterVis {
+            /*background-color:grey;*/
+            color: black;
+            font-size: 320%;
+            font-weight: bolder;
+            font-family: Sans-Serif;
+        }
     </style>
 
     <!--Bootstrap CSS-->
@@ -36,7 +45,7 @@
         <nav class="navbar navbar-default" id="theNavbar">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" id="theNavbarBrand" href="#" style="color: #fff">Management Page</a>
+                    <a class="navbar-brand" id="theNavbarBrand" href="#" style="color: #fff">Holiday Gift Shop - Management Page</a>
                 </div>
                 <%--<ul class="nav navbar-nav">
                     <li><a href="#" style="color: #fff">Something 1</a></li>
@@ -98,7 +107,7 @@
                 </div>
                 <div class="col-md-5">
                     <div style="">
-                        <h1>Add Employee Here</h1>
+                        <h1 class="betterVis">Add Employee Here</h1>
                         <table style="margin-top: 0%; background-color: cadetblue;">
                             <tr>
                                 <td>&nbsp;First Name:</td>
@@ -109,7 +118,7 @@
                                 <td>&nbsp;<asp:TextBox ID="txtLastName" runat="server" placeholder="Enter Last Name"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <td>&nbsp;User Name:</td>
+                                <td>&nbsp;Username:</td>
                                 <td>&nbsp;<asp:TextBox ID="txtUserName" runat="server" placeholder="Enter User Name"></asp:TextBox></td>
                             </tr>
                             <tr>
@@ -117,7 +126,7 @@
                                 <td>&nbsp;<asp:TextBox ID="txtPassword" runat="server" placeholder="Enter Password"></asp:TextBox></td>
                             </tr>
                             <tr>
-                                <td>&nbsp;Is Manger:</td>
+                                <td>&nbsp;Is Manager:</td>
                                 <td>
                                     <asp:DropDownList ID="DropDownListIsManager" runat="server">
                                         <asp:ListItem>no</asp:ListItem>
@@ -130,13 +139,13 @@
 
                         </table>
                         <h3>
-                            <asp:Label ID="lblMessage" runat="server" Text="" ForeColor=""></asp:Label></h3>
+                            <asp:Label ID="lblMessage" runat="server" Text=""  ForeColor="white" Style="font-size: 120%; font-weight: bolder; font-family: Sans-Serif;background-color: yellowgreen"></asp:Label></h3>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div style="">
                         <div style="">
-                            <h1>Employee Table</h1>
+                            <h1 class="betterVis">Employee Table</h1>
                             <asp:GridView ID="GridViewEMPLOYEE" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewTEST_RowDeleting" OnRowEditing="GridViewTEST_RowEditing" OnRowCancelingEdit="GridViewTEST_RowCancelingEdit" OnRowUpdating="GridViewTEST_RowUpdating" BackColor="#669999">
                                 <Columns>
                                     <asp:TemplateField Visible="true">

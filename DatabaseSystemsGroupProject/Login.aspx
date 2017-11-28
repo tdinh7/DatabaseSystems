@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-    <title>Database Systems Group Project Log In Page</title>
+    <title>Holiday Gift Shop Log In Page</title>
 
     <style>
         body {
@@ -34,7 +34,7 @@
         <nav class="navbar navbar-default" id="theNavbar">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" id="theNavbarBrand" href="#" style="color: #fff">Gift Shop Log In Page</a>
+                    <a class="navbar-brand" id="theNavbarBrand" href="#" style="color: #fff">Holiday Gift Shop Log In Page</a>
                 </div>
                 <%--<ul class="nav navbar-nav">
                     <li><a href="#" style="color: #fff">Something 1</a></li>

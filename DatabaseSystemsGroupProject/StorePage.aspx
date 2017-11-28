@@ -12,6 +12,14 @@
             background-attachment: fixed;
             background-size: 100%;
         }
+
+        .betterVis {
+            /*background-color:grey;*/
+            color: black;
+            font-size: 320%;
+            font-weight: bolder;
+            font-family: Sans-Serif;
+        }
     </style>
     <!--Bootstrap CSS-->
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
@@ -38,7 +46,7 @@
         <nav class="navbar navbar-default" id="theNavbar">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" id="theNavbarBrand" href="#" style="color: #fff">Gift Shop Page</a>
+                    <a class="navbar-brand" id="theNavbarBrand" href="#" style="color: #fff">Holiday Gift Shop - Store Page</a>
                 </div>
               <%--  <ul class="nav navbar-nav">
                     <li><a href="#" style="color: #fff">Something 1</a></li>
@@ -101,7 +109,7 @@
                 <div class="col-md-4">
                     <div>
                         <div style="">
-                            <h1>Add Customer Here</h1>
+                            <h1 class="betterVis">Add Customer Here</h1>
                             <table style="margin-top: 0%; background-color: cadetblue;">
                                 <tr>
                                     <td>&nbsp;First Name:</td>
@@ -130,8 +138,8 @@
                     <div>
                         <div style="">
                             <div style="">
-                                <h1>Customer Table</h1>
-                                <asp:GridView ID="GridViewCustomer" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewCustomer_RowDeleting" OnRowEditing="GridViewCustomer_RowEditing" OnRowCancelingEdit="GridViewCustomer_RowCancelingEdit" OnRowUpdating="GridViewCustomer_RowUpdating" BackColor="#669999">
+                                <h1 class="betterVis">Customer Table</h1>
+                                <asp:GridView ID="GridViewCustomer" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewCustomer_RowDeleting" OnRowEditing="GridViewCustomer_RowEditing" OnRowCancelingEdit="GridViewCustomer_RowCancelingEdit" OnRowUpdating="GridViewCustomer_RowUpdating" BackColor="#669999" OnSelectedIndexChanged="GridViewCustomer_SelectedIndexChanged">
                                     <Columns>
                                         <asp:TemplateField Visible="true">
                                             <ItemTemplate>
@@ -144,7 +152,7 @@
                                         <asp:BoundField DataField="DateJoined" HeaderText="DateJoined" />
                                         <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" ReadOnly="True" />
                                         <asp:CommandField ShowEditButton="True" />
-                                        <asp:CommandField ShowDeleteButton="True" />
+                                        <asp:CommandField ShowDeleteButton="False" />
                                     </Columns>
                                 </asp:GridView>
                             </div>
@@ -161,11 +169,11 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div>
                         <div style="">
                             <div style="">
-                                <h1>Item GridView</h1>
+                                <h1 class="betterVis">Item GridView</h1>
                             </div>
                             <asp:GridView ID="ItemGridView" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridViewItem_RowDeleting" OnRowEditing="GridViewItem_RowCancelingEdit" OnRowCancelingEdit="GridViewItem_RowEditing" OnRowUpdating="GridViewItem_RowUpdating" BackColor="#669999">
                                 <Columns>
@@ -175,9 +183,9 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <%--                        <asp:BoundField DataField="EmployeeID" HeaderText="EmployeeID" />--%>
-                                    <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="false" />
+                                    <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="false" ItemStyle-Width="220px"/>
                                     <asp:BoundField DataField="PictureUrl" HeaderText="PictureUrl" />
-                                    <asp:BoundField DataField="Price" HeaderText="Price" />
+                                    <asp:BoundField DataField="Price" HeaderText="Price" ItemStyle-Width="220px"/>
 
                                     <asp:TemplateField Visible="true" HeaderText="Quantity" ControlStyle-Width="50px">
                                         <ItemTemplate>
@@ -202,7 +210,7 @@
                                     </asp:TemplateField>
 
                                     <asp:CommandField ShowEditButton="True" />
-                                    <asp:CommandField ShowDeleteButton="True" />
+                                    <asp:CommandField ShowDeleteButton="False" />
                                 </Columns>
 
                             </asp:GridView>
@@ -216,9 +224,13 @@
 
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                 </div>
                 <div class="col-md-4">
+
+                    <div style="margin-top:70%">
+
+                        <h1 class="betterVis">Purchase Order Here</h1>
                     <table style="margin-top: 0%; background-color: cadetblue;">
                         <tr>
                             <td>&nbsp;CustomerID:</td>
@@ -226,12 +238,14 @@
                         </tr>
 
                     </table>
-                    <div>
+                        <br />
+                    <div >
                         <asp:Button ID="btnPuchaseItems" CssClass="btn btn-info" runat="server" Text="Purchase Items" OnClick="btnPuchaseItems_Click" />
 
                     </div>
                     <div>
                         <asp:Label ID="lblItemsPurchased" runat="server" Text="Label" Visible="false"></asp:Label>
+                    </div>
                     </div>
 
                     <%--<div>
@@ -279,34 +293,34 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-0">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div style="">
-                        <h1>OrderRecord Table</h1>
+                        <h1 class="betterVis">OrderRecord Table</h1>
                         <asp:GridView ID="GridViewOrderRecord" runat="server" AutoGenerateColumns="False" BackColor="#669999">
                             <Columns>
-                                <asp:BoundField DataField="OrderRecordID" HeaderText="OrderRecordID" ReadOnly="true" />
-                                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" />
-                                <asp:BoundField DataField="DateOrdered" HeaderText="DateOrdered" />
-                                <asp:BoundField DataField="NumberOfItems" HeaderText="NumberOfItems" />
-                                <asp:BoundField DataField="TotalPrice" HeaderText="TotalPrice" />
+                                <asp:BoundField DataField="OrderRecordID" HeaderText="OrderRecordID" ReadOnly="true" ItemStyle-Width="150px"/>
+                                <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" ItemStyle-Width="150px"/>
+                                <asp:BoundField DataField="DateOrdered" HeaderText="Date Ordered" ItemStyle-Width="340px"/>
+                                <asp:BoundField DataField="NumberOfItems" HeaderText="Number Of Items Ordered" ItemStyle-Width="270px"/>
+                                <asp:BoundField DataField="TotalPrice" HeaderText="Total Price In $$$" ItemStyle-Width="220px"/>
 
                             </Columns>
                         </asp:GridView>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                 </div>
                 <div class="col-md-4">
                     <div style="">
-                        <h1>OrderItem Table</h1>
+                        <h1 class="betterVis">OrderItem Table</h1>
                         <asp:GridView ID="GridViewOrderItem" runat="server" AutoGenerateColumns="False" BackColor="#669999">
                             <Columns>
-                                <asp:BoundField DataField="OrderItemID" HeaderText="OrderItemID" ReadOnly="true" />
-                                <asp:BoundField DataField="OrderRecordID" HeaderText="OrderRecordID" />
-                                <asp:BoundField DataField="ItemID" HeaderText="ItemID" />
-                                <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+                                <asp:BoundField DataField="OrderItemID" HeaderText="OrderItemID" ReadOnly="true" ItemStyle-Width="220px"/>
+                                <asp:BoundField DataField="OrderRecordID" HeaderText="OrderRecordID" ItemStyle-Width="220px"/>
+                                <asp:BoundField DataField="ItemID" HeaderText="ItemID" ItemStyle-Width="220px"/>
+                                <asp:BoundField DataField="Quantity" HeaderText="Quantity" ItemStyle-Width="220px"/>
                             </Columns>
                         </asp:GridView>
                     </div>

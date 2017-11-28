@@ -13,6 +13,7 @@ namespace DatabaseSystemsGroupProject
 
         public StoreManager() {
             itemList = new List<Item>();
+            orderRecordList = new List<OrderRecord>();
         }
 
         public Boolean AddItemToList(int tempItemID, string pictureUrl, string name, string price, int quantity) {
@@ -23,6 +24,7 @@ namespace DatabaseSystemsGroupProject
 
         public Boolean AddOrderRecordToList(String orderRecordID, String customerID, String dateOrdered, String numberOfItems, String totalPrice) {
             OrderRecord tempOrderRecord = new OrderRecord( orderRecordID,  customerID,  dateOrdered,  numberOfItems,  totalPrice);
+            orderRecordList.Add(tempOrderRecord);
             return true;
         }
     }

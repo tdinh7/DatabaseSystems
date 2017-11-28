@@ -7,12 +7,7 @@ namespace DatabaseSystemsGroupProject
 {
     public class OrderRecord
     {
-        String orderRecordID;
-        String customerID;
-        String dateOrdered;
-        String numberOfItems;
-        String totalPrice;
-
+       
         public OrderRecord(String orderRecordID,String customerID,String dateOrdered,String numberOfItems,String totalPrice)
         {
             this.orderRecordID = orderRecordID;
@@ -20,6 +15,21 @@ namespace DatabaseSystemsGroupProject
             this.dateOrdered = dateOrdered;
             this.numberOfItems = numberOfItems;
             this.totalPrice = totalPrice;
+        }
+
+        public String orderRecordID;
+        public String customerID;
+        public String dateOrdered;
+        public String numberOfItems;
+        public String totalPrice;
+
+        public String getOrderRecordID() {
+            return orderRecordID;
+        }
+
+        public void setOrderRecordID(String orderRecordID)
+        {
+            this.orderRecordID = orderRecordID;
         }
     }
 }

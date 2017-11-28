@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -312,56 +313,110 @@ namespace DatabaseSystemsGroupProject
             HiddenField customerIDHidden = (HiddenField)gvRow.FindControl("CustomerId");
 
             sqlConnectionOBJ.ConnectionString = "Data Source=DESKTOP-P0QRTM4;Initial Catalog=DatabaseSystems8490;Integrated Security=True";
-            //code to get all of the records in the OrderRecords table that has a CustomerID = customerIDHidden
+            ////code to get all of the records in the OrderRecords table that has a CustomerID = customerIDHidden
 
-            //SELECT * FROM OrderRecord WHERE CustomerID = customerIDHidden
-            try
-            {
-                sqlConnectionOBJ.Open();
+            ////SELECT * FROM OrderRecord WHERE CustomerID = customerIDHidden
+            //try
+            //{
+            //    sqlConnectionOBJ.Open();
 
-                String sqlStatement = String.Format("SELECT * FROM OrderRecord Where CustomerID ={0}", int.Parse(customerIDHidden.Value.ToString()));
+            //    String sqlStatement = String.Format("SELECT * FROM OrderRecord Where CustomerID ={0}", int.Parse(customerIDHidden.Value.ToString()));
 
-                sqlCommandOBJ.CommandText = sqlStatement;
-                sqlCommandOBJ.Connection = sqlConnectionOBJ;
+            //    sqlCommandOBJ.CommandText = sqlStatement;
+            //    sqlCommandOBJ.Connection = sqlConnectionOBJ;
 
-                sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+            //    sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
 
-                DataSet customerDataSetOBJ = new DataSet();
+            //    DataSet customerDataSetOBJ = new DataSet();
 
-                sqlDataAdapterOBJ.Fill(customerDataSetOBJ, "OrderRecord");//we are expecting a DataSet/ResultSet back
+            //    sqlDataAdapterOBJ.Fill(customerDataSetOBJ, "OrderRecord");//we are expecting a DataSet/ResultSet back
 
-                //gets the stored 'StoreManager' object stored in the session object 
-                storeManager = (StoreManager)Session["storeManagerOBJsession"];
+            //    //gets the stored 'StoreManager' object stored in the session object 
+            //    storeManager = (StoreManager)Session["storeManagerOBJsession"];
 
-                if (customerDataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
-                {
-                    //loop through each row and create an object for each row
-                    foreach (DataRow row in customerDataSetOBJ.Tables[0].Rows)
-                    {
-                        String orderRecordID = row["OrderRecordID"].ToString();
-                        String customerID = row["CustomerID"].ToString();
-                        String dateOrdered = row["DateOrdered"].ToString();
-                        String numberOfItems = row["NumberOfItems"].ToString();
-                        String totalPrice = row["TotalPrice"].ToString();
-                        storeManager.AddOrderRecordToList(orderRecordID, customerID, dateOrdered, numberOfItems, totalPrice);
-                    }
-                }
-                else
-                {
+            //    if (customerDataSetOBJ.Tables[0].Rows.Count > 0)//run if there's more than one row in the dataset
+            //    {
+            //        //loop through each row and create an object for each row
+            //        foreach (DataRow row in customerDataSetOBJ.Tables[0].Rows)
+            //        {
+            //            String orderRecordID = row["OrderRecordID"].ToString();
+            //            String customerID = row["CustomerID"].ToString();
+            //            String dateOrdered = row["DateOrdered"].ToString();
+            //            String numberOfItems = row["NumberOfItems"].ToString();
+            //            String totalPrice = row["TotalPrice"].ToString();
+            //            storeManager.AddOrderRecordToList(orderRecordID, customerID, dateOrdered, numberOfItems, totalPrice);
+            //        }
 
-                }
-            }
-            catch (SqlException ex)
-            {
-                lblMessage.Visible = true;
-                lblMessage.Text = "SqlException*** ERROR*** \n " + ex.Message;
-                throw;
-            }
-            finally
-            {
-                sqlConnectionOBJ.Close();
-                sqlConnectionOBJ.Dispose();
-            }
+            //        //Loop through this ArrayList of OrderRecord objects, for each object's OrderRecordID:
+            //        //DELETE * FROM OrderItem WHERE OrderRecordID = "object's OrderRecordID"
+            //        List<OrderRecord> orderRecordList = (List<OrderRecord>)storeManager.orderRecordList;
+
+
+            //        //Loop through this ArrayList of OrderRecord objects, and for each object's OrderRecordID:
+            //        //DELETE * FROM OrderItem WHERE OrderRecordID = "object's OrderRecordID"
+            //        foreach (OrderRecord orderRecord in orderRecordList)
+            //        {
+            //            String orderRecordId = orderRecord.orderRecordID;
+
+            //            try
+            //            {
+            //                if (sqlConnectionOBJ != null && sqlConnectionOBJ.State == ConnectionState.Closed)
+            //                {
+            //                    sqlConnectionOBJ.Open();//opens connection
+
+            //                    sqlStatement = String.Format("DELETE FROM OrderItem WHERE OrderRecordID={0}", int.Parse(orderRecordId.ToString()));
+
+            //                    sqlCommandOBJ.CommandText = sqlStatement;
+            //                    sqlCommandOBJ.Connection = sqlConnectionOBJ;
+
+            //                    sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+
+            //                    sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
+            //                }
+            //                else
+            //                {
+            //                    sqlStatement = String.Format("DELETE FROM OrderItem WHERE OrderRecordID={0}", int.Parse(orderRecordId.ToString()));
+
+            //                    sqlCommandOBJ.CommandText = sqlStatement;
+            //                    sqlCommandOBJ.Connection = sqlConnectionOBJ;
+
+            //                    sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+
+            //                    sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
+            //                }
+
+            //            }
+            //            catch (SqlException ex)
+            //            {
+            //                lblMessage.Visible = true;
+            //                ltError.Text = "***SqlException*** ERROR*** \n" + ex.Message;
+            //                throw;
+            //            }
+            //            finally
+            //            {
+            //                sqlConnectionOBJ.Close();
+            //                sqlConnectionOBJ.Dispose();
+
+            //                BindAllGridViewControlsOnPage();//rebinds data to all gridview controls on the page           
+            //            }
+            //        }
+            //    }
+            //    else
+            //    {
+
+            //    }
+            //}
+            //catch (SqlException ex)
+            //{
+            //    lblMessage.Visible = true;
+            //    lblMessage.Text = "SqlException*** ERROR*** \n " + ex.Message;
+            //    throw;
+            //}
+            //finally
+            //{
+            //    sqlConnectionOBJ.Close();
+            //    sqlConnectionOBJ.Dispose();
+            //}
 
             //Loop through the dataset and create an object for each record and store this in an Arraylist
 
@@ -370,34 +425,34 @@ namespace DatabaseSystemsGroupProject
 
             //code to get all of the records in the OrderRecords table that has a CustomerID = customerIDHidden
 
-            //try
-            //{
-            //    sqlConnectionOBJ.Open();
-            //    String sqlStatement = String.Format("DELETE FROM Customer WHERE CustomerId={0}", int.Parse(customerIDHidden.Value.ToString()));
+            try
+            {
+                sqlConnectionOBJ.Open();
+                String sqlStatement = String.Format("DELETE FROM Customer WHERE CustomerId={0}", int.Parse(customerIDHidden.Value.ToString()));
 
-            //    sqlCommandOBJ.CommandText = sqlStatement;
-            //    sqlCommandOBJ.Connection = sqlConnectionOBJ;
+                sqlCommandOBJ.CommandText = sqlStatement;
+                sqlCommandOBJ.Connection = sqlConnectionOBJ;
 
-            //    sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
+                sqlDataAdapterOBJ.SelectCommand = sqlCommandOBJ;
 
-                
-            //    sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
 
-            //    GridViewCustomer.EditIndex = -1;//reset index
-            //}
-            //catch (SqlException ex)
-            //{
-            //    lblMessage.Visible = true;
-            //    ltError.Text = "***SqlException*** ERROR*** \n" + ex.Message;
-            //    throw;//wtf is this???
-            //}
-            //finally
-            //{
-            //    sqlConnectionOBJ.Close();
-            //    sqlConnectionOBJ.Dispose();
+                sqlCommandOBJ.ExecuteNonQuery();//since we are not expecting a DataSet/ResultSet back
 
-            //    BindAllGridViewControlsOnPage();//rebinds data to all gridview controls on the page           
-            //}
+                GridViewCustomer.EditIndex = -1;//reset index
+            }
+            catch (SqlException ex)
+            {
+                lblMessage.Visible = true;
+                ltError.Text = "***SqlException*** ERROR*** \n" + ex.Message;
+                throw;//wtf is this???
+            }
+            finally
+            {
+                sqlConnectionOBJ.Close();
+                sqlConnectionOBJ.Dispose();
+
+                BindAllGridViewControlsOnPage();//rebinds data to all gridview controls on the page           
+            }
         }
 
         protected void GridViewCustomer_RowEditing(object sender, GridViewEditEventArgs e)
@@ -707,6 +762,11 @@ namespace DatabaseSystemsGroupProject
 
             BindAllGridViewControlsOnPage();//rebinds data to all gridview controls on the page
             lblMessage.Visible = false;
+        }
+
+        protected void GridViewCustomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
